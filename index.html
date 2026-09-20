@@ -124,7 +124,7 @@
   }
   .section-head p { margin-top: 16px; font-size: 16.5px; line-height: 1.65; color: var(--text-muted); }
 
-  /* ---------- Compare (section: не ведём в чужие интересы) ---------- */
+  /* ---------- Compare ---------- */
   .compare {
     display: grid; grid-template-columns: 1fr 1fr; gap: 0;
     border: 1px solid var(--border-soft); border-radius: 4px; overflow: hidden;
@@ -133,13 +133,13 @@
   .compare-col + .compare-col { border-left: 1px solid var(--border-soft); }
   .compare-col.bad { background: rgba(255,255,255,0.015); }
   .compare-col.good { background: linear-gradient(180deg, rgba(111,163,224,0.08), transparent 60%); }
-  .compare-label { font-size: 12.5px; font-weight: 700; letter-spacing: .02em; text-transform: none; margin-bottom: 18px; }
+  .compare-label { font-size: 12.5px; font-weight: 700; letter-spacing: .02em; margin-bottom: 18px; }
   .compare-col.bad .compare-label { color: var(--text-faint); }
   .compare-col.good .compare-label { color: var(--accent-soft); }
   .compare-col p { font-size: 15.5px; line-height: 1.65; color: var(--text-muted); }
   .compare-col.good p { color: var(--text); }
 
-  /* ---------- Feature rows (несколько стран) ---------- */
+  /* ---------- Feature rows ---------- */
   .feature-rows { display: flex; flex-direction: column; }
   .feature-row {
     display: grid; grid-template-columns: 90px 1fr; gap: 28px;
@@ -150,7 +150,7 @@
   .feature-row h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.2px; }
   .feature-row p { font-size: 15.5px; line-height: 1.65; color: var(--text-muted); max-width: 56ch; }
 
-  /* ---------- Toolkit list ---------- */
+  /* ---------- Toolkit ---------- */
   .toolkit { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
   .toolkit-item { display: flex; gap: 18px; }
   .toolkit-icon {
@@ -162,10 +162,8 @@
   .toolkit-item h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 6px; }
   .toolkit-item p { font-size: 15px; line-height: 1.6; color: var(--text-muted); }
 
-  /* ---------- Curator quote block ---------- */
-  .curator {
-    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
-  }
+  /* ---------- Curator ---------- */
+  .curator { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
   .curator blockquote {
     font-family: var(--serif); font-size: clamp(22px, 3vw, 30px); line-height: 1.42;
     font-weight: 500; color: var(--text); letter-spacing: -0.3px;
@@ -209,7 +207,7 @@
   .urgency-text p + p { margin-top: 18px; }
   .urgency-text strong { color: var(--text); font-weight: 700; }
 
-  /* ---------- Final CTA / form section ---------- */
+  /* ---------- Final CTA / form ---------- */
   .final-cta { padding-top: 88px; }
   .final-grid { display: grid; grid-template-columns: 1fr 440px; gap: 60px; align-items: start; }
   .final-copy h2 {
@@ -221,7 +219,6 @@
   .final-point { display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--text-muted); }
   .final-point .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 
-  /* ---------- Form card (kept close to the original) ---------- */
   .card {
     width: 100%;
     background: var(--card-bg);
@@ -248,8 +245,8 @@
 
   .form-group { margin-bottom: 15px; }
   .form-group label { display: block; font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-  .form-group input,
-  .form-group select {
+  .form-group .optional-tag { color: var(--text-faint); font-weight: 400; }
+  .form-group input {
     width: 100%; background: var(--input-bg); border: 1.5px solid var(--border);
     border-radius: 10px; color: var(--text); font-size: 14px; font-family: var(--sans);
     font-weight: 500; padding: 11px 14px; outline: none;
@@ -257,18 +254,11 @@
     appearance: none; -webkit-appearance: none;
   }
   .form-group input::placeholder { color: var(--text-faint); font-weight: 400; }
-  .form-group input:focus,
-  .form-group select:focus {
+  .form-group input:focus {
     border-color: var(--accent); background: var(--input-focus);
     box-shadow: 0 0 0 3px rgba(255,255,255,0.14);
   }
-  .form-group select {
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 14px center; background-color: var(--input-bg);
-    padding-right: 36px;
-  }
-  .form-group select option { color: #f2f4f8; background: var(--input-bg); }
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
   .btn {
     display: block; width: 100%; margin-top: 22px; padding: 14px;
@@ -282,13 +272,11 @@
 
   .footer-note { text-align: center; font-size: 12px; color: var(--text-faint); margin-top: 16px; line-height: 1.6; }
 
-  /* ---------- Footer ---------- */
   footer { padding: 40px 0 48px; }
   .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   .footer-inner .brand-name { font-size: 15px; }
   footer .footer-tag { font-size: 13px; color: var(--text-faint); }
 
-  /* ---------- Responsive ---------- */
   @media (max-width: 860px) {
     .hero-strip { grid-template-columns: 1fr; }
     .hero-strip-item { border-right: none; border-bottom: 1px solid var(--border-soft); }
@@ -308,6 +296,7 @@
     .feature-row { grid-template-columns: 46px 1fr; gap: 16px; }
     .feature-row-num { font-size: 26px; }
     .card { padding: 28px 22px 32px; }
+    .form-row-2 { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -553,34 +542,39 @@
               </div>
 
               <div class="form-group">
-                <label for="age">Возраст</label>
-                <input type="number" id="age" placeholder="17" min="10" max="60" required />
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Номер телефона</label>
+                <label for="phone">Номер телефона <span class="optional-tag">(этот же для WhatsApp)</span></label>
                 <input type="tel" id="phone" placeholder="+996 XXX XXX XXX" required />
               </div>
 
-              <div class="form-group">
-                <label for="grade">В каком классе / курсе учитесь</label>
-                <input type="text" id="grade" placeholder="11 класс / 2 курс" required />
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="age">Возраст</label>
+                  <input type="number" id="age" placeholder="17" min="10" max="60" required />
+                </div>
+                <div class="form-group">
+                  <label for="grade">Класс / курс</label>
+                  <input type="text" id="grade" placeholder="11 класс / 2 курс" required />
+                </div>
               </div>
 
               <div class="form-group">
-                <label for="country">В какую страну хотите поступить</label>
-                <select id="country" required>
-                  <option value="" disabled selected>Выберите страну</option>
-                  <option value="США">США</option>
-                  <option value="Польша">Польша</option>
-                  <option value="Корея">Южная Корея</option>
-                </select>
+                <label for="country">Страна поступления</label>
+                <input type="text" id="country" placeholder="Например, США" required />
               </div>
 
-              <button type="submit" class="btn" id="submitBtn">Получить бесплатную консультацию →</button>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="budget">Бюджет <span class="optional-tag">(в год)</span></label>
+                  <input type="text" id="budget" placeholder="Например, до $5 000" />
+                </div>
+                <div class="form-group">
+                  <label for="ielts">IELTS / язык</label>
+                  <input type="text" id="ielts" placeholder="Например, 6.0 или ещё нет" />
+                </div>
+              </div>
+
+              <button type="submit" class="btn" id="submitBtn">Получить бесплатную консультацию</button>
             </form>
-
-            <p class="footer-note">Нажимая на кнопку, ты соглашаешься с обработкой персональных данных.</p>
           </div>
         </div>
       </div>
@@ -605,16 +599,22 @@
       btn.textContent = 'Отправляем...';
       btn.disabled = true;
 
+      const phone = document.getElementById('phone').value;
+
       const data = {
-        fullname: document.getElementById('fullname').value,
-        age:      document.getElementById('age').value,
-        phone:    document.getElementById('phone').value,
-        grade:    document.getElementById('grade').value,
-        country:  document.getElementById('country').value,
+        'ФИО': document.getElementById('fullname').value,
+        'Телефон': phone,
+        'WhatsApp': phone,
+        'Возраст': document.getElementById('age').value,
+        'Класс/курс': document.getElementById('grade').value,
+        'Страна': document.getElementById('country').value,
+        'Бюджет': document.getElementById('budget').value,
+        'IELTS / язык': document.getElementById('ielts').value,
+        'Источник': 'Сайт'
       };
 
       try {
-        await fetch('https://script.google.com/macros/s/AKfycbyqeB3HQsZ1oqdWgLZZFg2Ttzy32Ji5P_Vn0uUdeoul-jhT2zBoSZyk1A56skXlgNi-hg/exec', {
+        await fetch('https://script.google.com/macros/s/AKfycbwAw959NHDMQhFG_Ytn-60ff8sIgXPlSf7MjHfXEf3h3PGClbn1vIg80EavRxfvEM-VJA/exec', {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
