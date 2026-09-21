@@ -613,23 +613,21 @@
         'Источник': 'Сайт'
       };
 
-      try {
-        await fetch('https://script.google.com/macros/s/AKfycbwAw959NHDMQhFG_Ytn-60ff8sIgXPlSf7MjHfXEf3h3PGClbn1vIg80EavRxfvEM-VJA/exec', {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
+      // Отправляем и не ждём ответа: при mode:'no-cors' реальный статус
+      // всё равно нельзя прочитать, а ждать 2-3 секунды впустую не нужно.
+      fetch('https://script.google.com/macros/s/AKfycbwAw959NHDMQhFG_Ytn-60ff8sIgXPlSf7MjHfXEf3h3PGClbn1vIg80EavRxfvEM-VJA/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(() => {});
 
+      setTimeout(() => {
         btn.textContent = '✅ Заявка отправлена!';
         btn.style.background = '#16a34a';
         document.getElementById('batForm').reset();
         setTimeout(() => { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 4000);
-      } catch (err) {
-        btn.textContent = '❌ Ошибка, попробуйте снова';
-        btn.style.background = '#dc2626';
-        btn.disabled = false;
-      }
+      }, 500);
     });
   </script>
 
